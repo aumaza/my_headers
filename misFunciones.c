@@ -4,6 +4,13 @@
 #include <ctype.h>
 #include <conio.h>
 #include "misFunciones.h"
+#include "Employee.h"
+
+#ifdef __linux__
+#define SO "Linux"
+#elif _WIN32
+#define SO "Windows"
+#endif
 
 /** \brief Funcion strlwr
  *
@@ -254,3 +261,117 @@ int getInt(char msj[], char error[], int limInf, int limSup, int attemp)
 
 return dato;
 }
+
+/** \brief optionMain Function
+ *
+ * \param prompt the options the task to do, in a numeric main
+ * \param call to the available functions
+ * \return the action request in main selection.
+ *
+ */
+
+
+int optionMain()
+{
+system("cls");
+system("clear");
+
+
+int opc;
+
+do{
+osDetect(SO);
+
+//Employee list, *pEmployee;
+//pEmployee = &list;
+
+int ok;
+int ch;
+
+printf("\n======================================");
+printf("\nSeleccione la Operacion a Realizar");
+printf("\n======================================\n");
+printf("\n1. Altas");
+printf("\n2. Modificar");
+printf("\n3. Baja");
+printf("\n4. Informes");
+printf("\n5. Salir");
+printf("\n\n======================================\n");
+
+do
+    {
+      printf("\nOpcion: ");
+      fflush(stdout);
+      if ((ok = scanf("%d", &opc)) == EOF)
+         return EXIT_FAILURE;
+
+
+      if ((ch = getchar()) != '\n')
+      {
+         ok = 0;
+
+         while ((ch = getchar()) != EOF && ch != '\n');
+      }
+   }while(!ok);
+printf("\n======================================\n");
+
+switch(opc)
+{
+
+case 1:  break;
+case 2:  break;
+case 3:  break;
+case 4:  break;
+
+}
+}while(opc != 5);
+
+return 0;
+
+}
+
+/** \brief Funcion getString
+ *
+ * \param recibe una cadena de caracteres.-
+ * \param recibe como parametro un puntero a string.-
+ * \param recibe la longitud de la cadena de caracteres (cantidad de caracteres+1 caracter del salto de carro).-
+ * \return no devuelve nada.-
+ *
+ */
+
+void getString(char* string, int lengh)
+{
+char String[lengh];
+
+fgets(String, lengh, stdin);
+fflush(stdin);
+
+
+}
+
+/** \brief Funcion osDetect
+ *
+ * \param recibe una cadena de caracteres.-
+ * \param compara la cadena, si es Linux usa un comando, si es Windows, usa otro comando.-
+ * \return no devuelve nada.-
+ *
+ */
+
+
+void osDetect(char* string)
+{
+
+
+    if(strcmp(string,"Linux")==0)
+    {
+        system("clear");
+    }
+
+    if(strcmp(string,"Windows")==0)
+    {
+        system("cls");
+
+    }
+
+}
+

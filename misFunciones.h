@@ -10,5 +10,8 @@ void sortVectorUp(char vec[], int tam);
 void sortVectorDown(char vec[], int tam);
 void sortVectorChar(char vec[], int tam);
 int getInt(char msj[], char error[], int limInf, int limSup, int attemp);
+int optionMain();
+void getString(char* string, int lengh);
+void osDetect(char* string);
 
 #endif // MISFUNCIONES_H_INCLUDED
